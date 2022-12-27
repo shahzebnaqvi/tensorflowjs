@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+</head>
+<body>
+    
+<script>
+
+// Train model with fit().
+
+console.log("started")
+
+async function loadModel(){ 
+
+const model = await tf.loadLayersModel ('model.json'); model.predict([ [[84.72771,69.0087,87.31507,97.27792,83.78612,96.65207,96.04027]],[[84.72771,69.0087,87.31507,97.27792,83.78612,96.65207,96.04027]]]).print()
+
+}
+
+loadModel();
+
+</script>
+</body>
+</html>
