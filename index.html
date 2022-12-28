@@ -15,8 +15,9 @@ console.log("started")
 
 async function loadModel(){ 
 
-const model = await tf.loadLayersModel ('model.json'); 
-model.predict(tf.tensor2d([ [[84.72771,69.0087,87.31507,97.27792,83.78612,96.65207,96.04027]],[[84.72771,69.0087,87.31507,97.27792,83.78612,96.65207,96.04027]]])).print();
+const model = await tf.loadLayersModel('model.json'); 
+// model.predict(tf.tensor2d([ [[84.72771,69.0087,87.31507,97.27792,83.78612,96.65207,96.04027]],[[84.72771,69.0087,87.31507,97.27792,83.78612,96.65207,96.04027]]])).print();
+model.predict(tf.tensor2d([84.72771,69.0087,87.31507,97.27792,83.78612,96.65207,96.04027])).print();
 
 }
 
