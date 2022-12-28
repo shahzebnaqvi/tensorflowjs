@@ -32,8 +32,22 @@ async function loadModel() {
   // Use the model to make predictions, train it, etc.
   const model = await tf.loadLayersModel('model.json');
   model.summary(); 
-//   model.predict(tf.tensor2d([ [[84.72771,69.0087,87.31507,97.27792,83.78612,96.65207,96.04027]],[[84.72771,69.0087,87.31507,97.27792,83.78612,96.65207,96.04027]]])).print();
-  model.predict([ [[84.72771,69.0087,87.31507,97.27792,83.78612,96.65207,96.04027]],[[84.72771,69.0087,87.31507,97.27792,83.78612,96.65207,96.04027]]]);
+//   model.predict(tf.ones([1, 600, 600, 3],[1, 600, 600, 3])).print()
+const inputData = [
+  [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]],
+  [[21, 22, 23, 24, 25, 26, 27, 28, 29, 30], [31, 32, 33, 34, 35, 36, 37, 38, 39, 40]]
+];
+const inputTensor = tf.tensor3d(inputData, [2, 2, 10]);
+
+// Use the model to make a prediction
+const outputTensor = model.predict(inputTensor).print();
+
+// Convert the output tensor to a data array and return the result
+// const outputData = await outputTensor.data();
+// outputTensor.dispose();
+// return outputData;
+    // model.predict(([ [84.72771,69.0087,87.31507,97.27792,83.78612,96.65207,96.04027],[84.72771,69.0087,87.31507,97.27792,83.78612,96.65207,96.04027]])).print();
+//   model.predict(tf.ones([[[84.72771,69.0087,87.31507,97.27792,83.78612,96.65207,96.04027]]])).print();
 }
 loadModel();
 
